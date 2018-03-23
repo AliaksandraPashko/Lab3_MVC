@@ -1,0 +1,19 @@
+﻿@model Lab3_MVC_.Models.Regions
+
+@{
+    ViewData["Title"] = "Regions";
+  
+    <h2> Belarus Regions </h2>
+
+<form asp-controller="Regions" asp-action="Index">
+    <div class="form-group">
+        <div class="row">
+            <div asp-validation-summary="ModelOnly"></div>
+            <select asp-for="Id" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfRegions,"Id","Name"))"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+}
