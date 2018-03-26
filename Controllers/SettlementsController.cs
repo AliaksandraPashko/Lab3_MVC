@@ -19,9 +19,11 @@ namespace Lab3_MVC_.Controllers
         }
 
         // GET: Settlements
-        public async Task<IActionResult> Index()
+        public IActionResult Index(string id)
         {
-            return View(await _context.Settlements.ToListAsync());
+            List<Settlements> settlements = new List<Settlements>();
+            settlements = _context.Settlements.Where(item => item.Iddistrict == Int32.Parse(id)).ToList();
+            return View(settlements);
         }
 
         // GET: Settlements/Details/5

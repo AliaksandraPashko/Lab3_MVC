@@ -2,18 +2,36 @@
 
 @{
     ViewData["Title"] = "Regions";
-  
+
     <h2> Belarus Regions </h2>
 
-<form asp-controller="Regions" asp-action="Index">
-    <div class="form-group">
-        <div class="row">
-            <div asp-validation-summary="ModelOnly"></div>
-            <select asp-for="Id" class="form-control" asp-items="@(new SelectList(ViewBag.ListOfRegions,"Id","Name"))"></select>
+@using (Html.BeginForm("Index", "Districts"))
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DropDownList("Id", ViewData["RegionsList"] as SelectList, "--- Select region ---")
+                            </th>
+
+                            <th>
+                                <input type="submit" value="Submit">
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                
+            </form>
         </div>
     </div>
-    <div class="form-group">
-        <button type="submit">Submit</button>
-    </div>
-</form>
+
+
 }
+
+}
+
+            

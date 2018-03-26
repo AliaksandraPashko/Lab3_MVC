@@ -1,41 +1,36 @@
-﻿@model IEnumerable<Lab3_MVC_.Models.Districts>
-
+﻿@model Lab3_MVC_.Models.Districts
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Districts";
+
+    <h2> Belarus Districts </h2>
+
+    @using (Html.BeginForm("Index", "Settlements"))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DropDownList("Id", ViewData["DistrictsList"] as SelectList, "--- Select district ---")
+                                </th>
+
+                                <th>
+                                    <input type="submit" value="Submit">
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+    }
+
 }
 
-<h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Idregion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Idregion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

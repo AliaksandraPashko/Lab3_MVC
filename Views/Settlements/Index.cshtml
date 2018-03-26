@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Lab3_MVC_.Models.Settlements>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Settlements";
 }
 
-<h2>Index</h2>
+<h2>Settlements Info</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -38,7 +38,6 @@
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

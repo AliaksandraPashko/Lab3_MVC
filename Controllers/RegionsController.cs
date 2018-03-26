@@ -21,23 +21,10 @@ namespace Lab3_MVC_.Controllers
        
         public IActionResult Index()
         {
-            List<Regions> list = new List<Regions>();
-            list = _context.Regions.ToList();
-            list.Insert(0, new Regions {  Id=0 , Name="-Select-" });
-            ViewBag.ListOfRegions = list;   
-
+            ViewData["RegionsList"] = new SelectList(_context.Regions,"Id","Name"); 
             return View();
           //  return View(await _context.Regions.ToListAsync());
         }
 
-        public IActionResult IndexDistricts(int? id)
-        {
-            List<Districts> list = new List<Districts>();
-            list = _context.Districts.Where(item => item.Idregion == id).ToList();
-            ViewBag.ListOfDistricts = list;
-
-            return View();
-  
-        }
     }
 }
