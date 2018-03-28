@@ -41,7 +41,9 @@ namespace Lab3_MVC_.Models
 
             modelBuilder.Entity<Settlements>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.HasKey(e => e.SettlementId);
+
+                entity.Property(e => e.SettlementId).HasColumnName("ID");
 
                 entity.Property(e => e.Iddistrict).HasColumnName("IDDistrict");
 

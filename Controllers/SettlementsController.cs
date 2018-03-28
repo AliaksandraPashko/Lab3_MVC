@@ -17,25 +17,26 @@ namespace Lab3_MVC_.Controllers
         {
             _context = context;
         }
-
-        // GET: Settlements
-        public IActionResult Index(string id)
+        
+        // GET: Settlements/5
+        public IActionResult Index(string i)
         {
+            ViewData["IdSelectedDistrict"] = Int32.Parse(i);
             List<Settlements> settlements = new List<Settlements>();
-            settlements = _context.Settlements.Where(item => item.Iddistrict == Int32.Parse(id)).ToList();
+            settlements = _context.Settlements.Where(item => item.Iddistrict == Int32.Parse(i)).ToList();
             return View(settlements);
         }
 
         // GET: Settlements/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? i)
         {
-            if (id == null)
+            if (i == null)
             {
                 return NotFound();
             }
 
             var settlements = await _context.Settlements
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .SingleOrDefaultAsync(m => m.SettlementId == i);
             if (settlements == null)
             {
                 return NotFound();
@@ -44,9 +45,10 @@ namespace Lab3_MVC_.Controllers
             return View(settlements);
         }
 
-        // GET: Settlements/Create
-        public IActionResult Create()
+        // GET: Settlements/Create/5
+        public IActionResult Create(int? i)
         {
+            ViewData["IdSelectedDistrict"] = i;
             return View();
         }
 
@@ -55,14 +57,15 @@ namespace Lab3_MVC_.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Iddistrict,Name,Type,Population")] Settlements settlements)
+        public async Task<IActionResult> Create([Bind("SettlementId,Iddistrict,Name,Type,Population")] Settlements settlements)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(settlements);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Settlements", new { i = settlements.Iddistrict });
             }
+            ViewData["IdSelectedDistrict"] = settlements.Iddistrict;
             return View(settlements);
         }
 
@@ -74,11 +77,12 @@ namespace Lab3_MVC_.Controllers
                 return NotFound();
             }
 
-            var settlements = await _context.Settlements.SingleOrDefaultAsync(m => m.Id == id);
+            var settlements = await _context.Settlements.SingleOrDefaultAsync(m => m.SettlementId == id);
             if (settlements == null)
             {
                 return NotFound();
             }
+            ViewData["IdSelectedDistrict"] = settlements.Iddistrict;
             return View(settlements);
         }
 
@@ -87,9 +91,9 @@ namespace Lab3_MVC_.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Iddistrict,Name,Type,Population")] Settlements settlements)
+        public async Task<IActionResult> Edit(int id, [Bind("SettlementId,Iddistrict,Name,Type,Population")] Settlements settlements)
         {
-            if (id != settlements.Id)
+            if (id != settlements.SettlementId)
             {
                 return NotFound();
             }
@@ -103,7 +107,7 @@ namespace Lab3_MVC_.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SettlementsExists(settlements.Id))
+                    if (!SettlementsExists(settlements.SettlementId))
                     {
                         return NotFound();
                     }
@@ -112,8 +116,9 @@ namespace Lab3_MVC_.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+             return RedirectToAction("Index", "Settlements", new { i = settlements.Iddistrict });
             }
+            ViewData["IdSelectedDistrict"] = settlements.Iddistrict;
             return View(settlements);
         }
 
@@ -126,12 +131,12 @@ namespace Lab3_MVC_.Controllers
             }
 
             var settlements = await _context.Settlements
-                .SingleOrDefaultAsync(m => m.Id == id);
+                .SingleOrDefaultAsync(m => m.SettlementId == id);
             if (settlements == null)
             {
                 return NotFound();
             }
-
+            ViewData["IdSelectedDistrict"] = settlements.Iddistrict;
             return View(settlements);
         }
 
@@ -140,15 +145,15 @@ namespace Lab3_MVC_.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var settlements = await _context.Settlements.SingleOrDefaultAsync(m => m.Id == id);
+            var settlements = await _context.Settlements.SingleOrDefaultAsync(m => m.SettlementId == id);
             _context.Settlements.Remove(settlements);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "Settlements", new { i = settlements.Iddistrict });
         }
 
-        private bool SettlementsExists(int id)
+        private bool SettlementsExists(int i)
         {
-            return _context.Settlements.Any(e => e.Id == id);
+            return _context.Settlements.Any(e => e.SettlementId == i);
         }
     }
 }

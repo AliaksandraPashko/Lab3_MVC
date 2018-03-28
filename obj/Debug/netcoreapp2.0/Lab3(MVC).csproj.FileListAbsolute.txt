@@ -2,10 +2,10 @@ D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\bin\Debug\netcoreapp2.0\Lab3(MVC).deps.jso
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\bin\Debug\netcoreapp2.0\Lab3(MVC).runtimeconfig.json
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\bin\Debug\netcoreapp2.0\Lab3(MVC).runtimeconfig.dev.json
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\bin\Debug\netcoreapp2.0\Lab3(MVC).dll
-D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).csprojResolveAssemblyReference.cache
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).csproj.CoreCompileInputs.cache
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).AssemblyInfoInputs.cache
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).AssemblyInfo.cs
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\bin\Debug\netcoreapp2.0\Lab3(MVC).pdb
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).dll
 D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).pdb
+D:\VSProjects2017\Lab3(MVC)\Lab3(MVC)\obj\Debug\netcoreapp2.0\Lab3(MVC).csprojResolveAssemblyReference.cache

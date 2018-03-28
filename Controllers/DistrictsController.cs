@@ -20,6 +20,7 @@ namespace Lab3_MVC_.Controllers
 
         public IActionResult Index(string id)
         {
+           
             ViewData["DistrictsList"] = new SelectList(_context.Districts.Where(item => item.Idregion == Int32.Parse(id)), "Id", "Name");
             return View();
         }

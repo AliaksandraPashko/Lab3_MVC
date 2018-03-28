@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Districts";
 
-    <h2> Belarus Districts </h2>
+    <h2> Districts </h2>
 
     @using (Html.BeginForm("Index", "Settlements"))
     {
@@ -14,7 +14,7 @@
                         <table class="table">
                             <tr>
                                 <th>
-                                    @Html.DropDownList("Id", ViewData["DistrictsList"] as SelectList, "--- Select district ---")
+                                    @Html.DropDownList("i" , ViewData["DistrictsList"] as SelectList)
                                 </th>
 
                                 <th>

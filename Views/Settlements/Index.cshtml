@@ -7,8 +7,12 @@
 <h2>Settlements Info</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @Html.ActionLink("Create", "Create", "Settlements",
+            new { i = ViewData["IdSelectedDistrict"] }, new { }
+            )
+
 </p>
+
 <table class="table">
     <thead>
         <tr>  
@@ -37,8 +41,8 @@
                 @Html.DisplayFor(modelItem => item.Population)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.SettlementId">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.SettlementId">Delete</a>
             </td>
         </tr>
 }
