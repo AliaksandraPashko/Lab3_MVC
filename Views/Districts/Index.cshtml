@@ -14,11 +14,11 @@
                         <table class="table">
                             <tr>
                                 <th>
-                                    @Html.DropDownList("i" , ViewData["DistrictsList"] as SelectList)
+                                    @Html.DropDownList("i" , ViewData["DistrictsList"] as SelectList, new { @class = "form-control" })
                                 </th>
 
                                 <th>
-                                    <input type="submit" value="Submit">
+                                    <input type="submit" value="Submit" class="form-control">
                                 </th>
                             </tr>
                         </table>
